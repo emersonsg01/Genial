@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom minor tweaks on top of Tailwind */
+.katex-html { margin-top: 6px }
+.result { @apply text-green-700 font-semibold }
+.panel { @apply bg-white border border-gray-200 p-4 rounded-md }
