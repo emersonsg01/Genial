@@ -43,12 +43,25 @@ export default function GraphArea() {
 
   return (
     <section className="panel graph">
-      <h2>Gráficos</h2>
-      <div style={{ marginBottom: 8 }}>
-        <label>Tipo: <select value={type} onChange={(e) => setType(e.target.value as any)}><option value="line">Linha</option><option value="bar">Bar</option></select></label>
-        <label style={{ marginLeft: 8 }}>Dataset: <select value={dataset} onChange={(e) => setDataset(e.target.value as any)}><option value="compound">Juros Compostos</option><option value="velocity">Velocidade vs Tempo</option></select></label>
+      <h2 className="panel-title">Gráficos</h2>
+      <p className="panel-subtitle">Visualização interativa para comparação de cenários.</p>
+      <div className="grid grid-cols-1 gap-2 mb-3">
+        <label className="text-sm text-slate-600">
+          Tipo
+          <select className="field mt-1" value={type} onChange={(e) => setType(e.target.value as any)}>
+            <option value="line">Linha</option>
+            <option value="bar">Barra</option>
+          </select>
+        </label>
+        <label className="text-sm text-slate-600">
+          Dataset
+          <select className="field mt-1" value={dataset} onChange={(e) => setDataset(e.target.value as any)}>
+            <option value="compound">Juros Compostos</option>
+            <option value="velocity">Velocidade vs Tempo</option>
+          </select>
+        </label>
       </div>
-      <div style={{ width: '100%', height: 320 }}>
+      <div className="rounded-xl border border-slate-200 bg-white p-2" style={{ width: '100%', height: 320 }}>
         {type === 'line' ? <Line data={data as any} /> : <Bar data={data as any} />}
       </div>
     </section>

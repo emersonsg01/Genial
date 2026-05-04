@@ -4,5 +4,81 @@
 
 /* Custom minor tweaks on top of Tailwind */
 .katex-html { margin-top: 6px }
-.result { @apply text-green-700 font-semibold }
-.panel { @apply bg-white border border-gray-200 p-4 rounded-md }
+.result {
+  color: #15803d;
+  font-weight: 600;
+}
+.panel {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 10px 30px -20px rgba(15, 23, 42, 0.45);
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.panel-subtitle {
+  font-size: 0.84rem;
+  color: #64748b;
+  margin-bottom: 0.9rem;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.btn {
+  border: 0;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.625rem;
+  padding: 0.5rem 0.875rem;
+  transition: transform 100ms ease, filter 120ms ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+}
+
+.btn-soft {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.output-box {
+  margin-top: 0.75rem;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+}

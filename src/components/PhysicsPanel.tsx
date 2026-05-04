@@ -29,10 +29,11 @@ export default function PhysicsPanel() {
 
   return (
     <section className="panel">
-      <h2 className="text-lg font-semibold mb-2">Física</h2>
+      <h2 className="panel-title">Física</h2>
+      <p className="panel-subtitle">Selecione a fórmula e calcule grandezas com praticidade.</p>
       <div className="mb-2">
         <select 
-          className="w-full border p-2 rounded bg-white"
+          className="field"
           value={mode} 
           onChange={(e) => setMode(e.target.value as any)}
         >
@@ -43,9 +44,9 @@ export default function PhysicsPanel() {
           <option value="gravity">F = m · g</option>
         </select>
       </div>
-      <div className="space-y-2 mb-2">
+      <div className="space-y-2 mb-3">
         <input 
-          className="w-full border p-2 rounded"
+          className="field"
           placeholder={mode === 'gravity' ? 'm (kg)' : 'Valor 1'} 
           value={a} 
           onChange={(e) => setA(e.target.value)}
@@ -53,7 +54,7 @@ export default function PhysicsPanel() {
         />
         {mode !== 'gravity' && (
           <input 
-            className="w-full border p-2 rounded"
+            className="field"
             placeholder="Valor 2" 
             value={b} 
             onChange={(e) => setB(e.target.value)}
@@ -62,17 +63,17 @@ export default function PhysicsPanel() {
         )}
       </div>
       <button 
-        className="w-full px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 font-semibold"
+        className="btn btn-primary w-full"
         onClick={compute}
       >
         Calcular
       </button>
       <div className="output space-y-1 mt-2">
         {out && (
-          <>
+          <div className="output-box">
             {out.formulaHtml && <div className="text-sm text-gray-700" dangerouslySetInnerHTML={{ __html: out.formulaHtml }} />}
             <div className="result text-lg font-bold text-green-700">Resultado: {out.result}</div>
-          </>
+          </div>
         )}
       </div>
     </section>

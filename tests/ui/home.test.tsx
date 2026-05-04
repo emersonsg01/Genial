@@ -8,7 +8,7 @@ describe('Home UI', () => {
     render(<App />)
     expect(await screen.findByText(/Genial — Calculadora e Ferramentas/i)).toBeInTheDocument()
     // check calculator input exists
-    const input = screen.getByPlaceholderText(/Digite número ou expressão/i)
+    const input = screen.getByPlaceholderText(/Primeiro número/i)
     expect(input).toBeInTheDocument()
     // check conversion button
     const convButton = screen.getByText(/°C → °F/)

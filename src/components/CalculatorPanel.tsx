@@ -62,33 +62,34 @@ export default function CalculatorPanel() {
 
   return (
     <section className="panel">
-      <h2 className="text-lg font-semibold mb-2">Calculadora</h2>
-      <div className="space-y-2 mb-2">
+      <h2 className="panel-title">Calculadora</h2>
+      <p className="panel-subtitle">Operações básicas com visualização clara do resultado.</p>
+      <div className="space-y-2 mb-3">
         <input 
-          className="w-full border p-2 rounded" 
+          className="field" 
           value={a} 
           onChange={(e) => setA(e.target.value)} 
           placeholder="Primeiro número" 
           type="number"
         />
         <input 
-          className="w-full border p-2 rounded" 
+          className="field" 
           value={b} 
           onChange={(e) => setB(e.target.value)} 
           placeholder="Segundo número" 
           type="number"
         />
       </div>
-      <div className="flex gap-2 mb-2 flex-wrap">
-        <button className="px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600" onClick={() => handleBasic('+')}>+</button>
-        <button className="px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600" onClick={() => handleBasic('-')}>−</button>
-        <button className="px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600" onClick={() => handleBasic('×')}>×</button>
-        <button className="px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600" onClick={() => handleBasic('÷')}>÷</button>
-        <button className="px-3 py-1 bg-sky-600 text-white rounded hover:bg-sky-700" onClick={() => handleBasic('sqrt')}>√</button>
+      <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-2">
+        <button className="btn btn-accent" onClick={() => handleBasic('+')}>+</button>
+        <button className="btn btn-accent" onClick={() => handleBasic('-')}>−</button>
+        <button className="btn btn-accent" onClick={() => handleBasic('×')}>×</button>
+        <button className="btn btn-accent" onClick={() => handleBasic('÷')}>÷</button>
+        <button className="btn btn-primary" onClick={() => handleBasic('sqrt')}>√</button>
       </div>
       <div className="output space-y-1">
         {output && (
-          <>
+          <div className="output-box">
             <div className="formula text-sm text-gray-700">
               {output.tex ? (
                 <span dangerouslySetInnerHTML={{ __html: renderToString(output.tex) }} />
@@ -97,7 +98,7 @@ export default function CalculatorPanel() {
               )}
             </div>
             <div className="result text-lg font-bold text-green-700">Resultado: {String(output.result)}</div>
-          </>
+          </div>
         )}
       </div>
     </section>

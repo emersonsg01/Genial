@@ -31,9 +31,10 @@ export default function FinancePanel() {
 
   return (
     <section className="panel">
-      <h2 className="text-lg font-semibold mb-2">Finanças</h2>
+      <h2 className="panel-title">Finanças</h2>
+      <p className="panel-subtitle">Simule juros simples e compostos com dados em tempo real.</p>
       <div className="space-y-2 mb-2">
-        <label className="flex items-center gap-2">
+        <label className="flex items-center gap-2 text-sm text-slate-700">
           <input 
             type="radio" 
             checked={mode==='simple'} 
@@ -42,7 +43,7 @@ export default function FinancePanel() {
           /> 
           Juros Simples
         </label>
-        <label className="flex items-center gap-2">
+        <label className="flex items-center gap-2 text-sm text-slate-700">
           <input 
             type="radio" 
             checked={mode==='compound'} 
@@ -52,16 +53,16 @@ export default function FinancePanel() {
           Juros Compostos
         </label>
       </div>
-      <div className="space-y-2 mb-2">
+      <div className="space-y-2 mb-3">
         <input 
-          className="w-full border p-2 rounded"
+          className="field"
           value={C} 
           onChange={(e) => setC(e.target.value)} 
           placeholder="Capital C" 
           type="number"
         />
         <input 
-          className="w-full border p-2 rounded"
+          className="field"
           value={i} 
           onChange={(e) => setI(e.target.value)} 
           placeholder="Taxa i (ex: 0.05)" 
@@ -69,7 +70,7 @@ export default function FinancePanel() {
           step="0.01"
         />
         <input 
-          className="w-full border p-2 rounded"
+          className="field"
           value={t} 
           onChange={(e) => setT(e.target.value)} 
           placeholder="Tempo t" 
@@ -77,20 +78,20 @@ export default function FinancePanel() {
         />
       </div>
       <button 
-        className="w-full px-3 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 font-semibold"
+        className="btn btn-soft w-full"
         onClick={compute}
       >
         Calcular
       </button>
       <div className="output space-y-1 mt-2">
         {out && (
-          <>
+          <div className="output-box">
             {out.formulaHtml && <div className="text-sm text-gray-700" dangerouslySetInnerHTML={{ __html: out.formulaHtml }} />}
             <div className="result text-lg font-bold text-green-700">Resultado: {out.result}</div>
             {out.series && (
               <div className="text-sm text-gray-600 mt-2">Série: [{out.series.map(v => v.toFixed(2)).join(', ')}]</div>
             )}
-          </>
+          </div>
         )}
       </div>
     </section>
