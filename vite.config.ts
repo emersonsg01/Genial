@@ -4,10 +4,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: { port: 5173 },
-  test: {
-    environment: 'jsdom',
-    setupFiles: ['./tests/setup.ts'],
-    globals: true,
-    include: ['tests/**/*.test.{ts,tsx}']
-  }
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          charts: ['chart.js', 'react-chartjs-2'],
+          katex: ['katex'],
+        },
+      },
+    },
+  },
 })
